@@ -1,10 +1,13 @@
 {
-	"name": "@nitrogenbuilder/wordpress",
+	"name": "@nitrogenbuilder/provider-wordpress",
 	"version": "0.1.0",
 	"description": "WordPress provider for Nitrogen Builder",
 	"main": "src/index.tsx",
 	"exports": "./src/index.tsx",
 	"type": "module",
+	"scripts": {
+		"deploy": "npm publish --access public"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Nitrogen-Builder/nitrogenbuilder-wordpress.git"
