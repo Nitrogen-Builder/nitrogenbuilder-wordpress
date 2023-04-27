@@ -9,7 +9,12 @@ import React from 'react';
 
 import './index.scss';
 
-const wordpress = (config) => {
+export type WordPressProps = {
+	apiUrl: string;
+	postType: string;
+};
+
+const wordpress = ({ apiUrl, postType }: WordPressProps) => {
 	const getFileUrl = (file: any) => file.url;
 
 	const searchOptions = {
@@ -31,10 +36,9 @@ const wordpress = (config) => {
 		return fuse;
 	}
 
-	const API_URL = config.apiUrl;
+	const API_URL = apiUrl;
 	// const API_TOKEN = import.meta.env.WP_API_TOKEN;
-	const WP_COLLECTION =
-		config.provider === 'wordpress' ? config.wordpress.postType : null;
+	const WP_COLLECTION = postType;
 
 	return {
 		savePage: async (title, page, setPageId, pageId) => {

@@ -1,29 +1,39 @@
 {
-  "name": "@nitrogenbuilder/wordpress",
-  "version": "0.1.0",
-  "description": "WordPress provider for Nitrogen Builder",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nitrogen-Builder/nitrogenbuilder-wordpress.git"
-  },
-  "keywords": [
-    "nitrogen",
-    "wordpress",
-    "builder"
-  ],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Nitrogen-Builder/nitrogenbuilder-wordpress/issues"
-  },
-  "homepage": "https://github.com/Nitrogen-Builder/nitrogenbuilder-wordpress#readme",
-  "dependencies": {
-    "fuse.js": "^6.6.2"
-  },
-  "devDependencies": {
-    "@torchmedia/prettier-config": "^1.0.3",
-    "prettier": "^2.8.8",
-    "react": "^18.2.0"
-  }
+	"name": "@nitrogenbuilder/wordpress",
+	"version": "0.1.0",
+	"description": "WordPress provider for Nitrogen Builder",
+	"main": "src/index.tsx",
+	"exports": "./src/index.tsx",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Nitrogen-Builder/nitrogenbuilder-wordpress.git"
+	},
+	"keywords": [
+		"nitrogen",
+		"nitrogenbuilder",
+		"builder",
+		"react",
+		"page",
+		"pagebuilder",
+		"wordpress"
+	],
+	"author": "Isaac Smith <isaac@w3dev.ca>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Nitrogen-Builder/nitrogenbuilder-wordpress/issues"
+	},
+	"homepage": "https://nitrogenbuilder.com",
+	"dependencies": {
+		"fuse.js": "^6.6.2"
+	},
+	"devDependencies": {
+		"@torchmedia/prettier-config": "^1.0.3",
+		"prettier": "^2.8.8",
+		"react": "^18.2.0"
+	},
+	"engines": {
+		"node": ">=16.x.x <=18.x.x",
+		"npm": ">=6.0.0"
+	}
 }
