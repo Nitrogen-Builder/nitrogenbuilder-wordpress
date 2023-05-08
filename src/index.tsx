@@ -1,11 +1,7 @@
-import Fuse from 'fuse.js';
 import React from 'react';
 
-// @ts-ignore
-// import config from '../../../../../../nitrogen.config.js';
-// import { Provider } from '../../../@types/settings.js';
-
-// TODO: get typescript declaration of config function from nitrogen builder
+import type { Provider } from '@nitrogenbuilder/core/@types/settings.js';
+import Fuse from 'fuse.js';
 
 import './index.scss';
 
@@ -14,7 +10,7 @@ export type WordPressProps = {
 	postType: string;
 };
 
-const wordpress = ({ apiUrl, postType }: WordPressProps) => {
+const wordpress = ({ apiUrl, postType }: WordPressProps): Provider => {
 	const getFileUrl = (file: any) => file.url;
 
 	const searchOptions = {
