@@ -1,6 +1,6 @@
 {
 	"name": "@nitrogenbuilder/provider-wordpress",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "WordPress provider for Nitrogen Builder",
 	"main": "src/index.tsx",
 	"exports": "./src/index.tsx",
@@ -28,6 +28,7 @@
 	},
 	"homepage": "https://nitrogenbuilder.com",
 	"dependencies": {
+		"@nitrogenbuilder/core": "^1.0.21",
 		"fuse.js": "^6.6.2"
 	},
 	"devDependencies": {

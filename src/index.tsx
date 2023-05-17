@@ -49,7 +49,7 @@ const wordpress = ({ apiUrl, postType }: WordPressProps): Provider => {
 						'Content-Type': 'application/json',
 					},
 					body: JSON.stringify({
-						data: { title, author, data: page },
+						data: { title, author, data: JSON.stringify(page) },
 					}),
 				});
 
