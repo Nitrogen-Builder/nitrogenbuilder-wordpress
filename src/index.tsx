@@ -99,30 +99,35 @@ const wordpress = ({ apiUrl, postType }: WordPressProps): Provider => {
 		},
 		gallery: {
 			getFileUrl,
-			getFiles: async (setFiles, fileTypes, search) => {
-				let filterQuery = '';
+			getFiles: async (setFiles, fileTypes, search, page, setMaxPages) => {
+				let filterQuery: string[] = [];
 
 				if (fileTypes) {
-					filterQuery = `?filters[ext][]=${fileTypes.join('&filters[ext][]=')}`;
+					filterQuery = [
+						`filters[ext][]=${fileTypes.join('&filters[ext][]=')}`,
+					];
 				}
 
-				if (filterQuery.length > 0 && search.length > 0) {
-					filterQuery += `&filters[search]=${search}`;
-				} else if (search.length > 0) {
-					filterQuery += `?filters[search]=${search}`;
+				if (search.length > 0) {
+					filterQuery.push(`filters[search]=${search}`);
 				}
 
-				fetch(`${API_URL}/media${filterQuery}`)
+				if (page > 0) {
+					filterQuery.push(`paged=${page}`);
+				}
+
+				fetch(`${API_URL}/media?${filterQuery.join('&')}`)
 					.then((res) => res.json())
 					.then((data) => {
 						// sort by createdAt
-						data.sort((a: any, b: any) => {
+						data.images.sort((a: any, b: any) => {
 							return (
 								new Date(b.post_date).getTime() -
 								new Date(a.post_date).getTime()
 							);
 						});
-						setFiles(data);
+						setFiles(data.images);
+						setMaxPages(data.pages);
 					});
 			},
 			updateFile: (id, data) => {
