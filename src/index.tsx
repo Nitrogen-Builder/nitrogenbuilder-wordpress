@@ -78,6 +78,14 @@ const wordpress = ({ apiUrl, postType }: WordPressProps): Provider => {
 				data: data.content,
 			};
 		},
+		loadGlobalModules: async () => {
+			const res = await fetch(
+				`${API_URL}/templates?templateType=global_module`
+			);
+			const data = await res.json();
+
+			return data;
+		},
 		searchUrls: async (
 			query: string
 		): Promise<{ label: string; slug?: string; value: string }[]> => {
